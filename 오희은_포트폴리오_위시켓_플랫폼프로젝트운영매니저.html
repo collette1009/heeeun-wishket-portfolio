@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오희은 | 위시켓 플랫폼 프로젝트 운영 매니저 Portfolio</title>
+<meta name="description" content="AI 기반 업무 자동화 · CRM 운영 · VOC 분석 · 반복 업무 자동화 · 이해관계자 조율">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-soft: #F7F7F8;
+    --border: rgba(20,20,22,0.1);
+    --ink-1: #141416;
+    --ink-2: #50505A;
+    --ink-3: #909098;
+    --charcoal: #282D32;
+    --charcoal-2: #34383E;
+    --charcoal-a: rgba(40,45,50,0.07);
+    --r: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    color: var(--ink-1);
+    background: var(--bg);
+    font-size: 15.5px;
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 96px 0; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 980px; margin: 0 auto; padding: 17px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo { font-size: 15.5px; font-weight: 800; color: var(--ink-1); letter-spacing: -0.01em; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-3); transition: color .15s; }
+  .nav-links a:hover { color: var(--ink-1); }
+
+  /* HERO */
+  .hero {
+    padding: 130px 0 100px;
+    background-image: radial-gradient(rgba(20,20,22,0.09) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .hero-tag { display: flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 26px; }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); }
+  .hero h1 { font-size: 50px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink-1); margin-bottom: 14px; }
+  .hero-role { font-size: 16.5px; color: var(--ink-2); font-weight: 500; margin-bottom: 30px; }
+  .hero-lead { font-size: 15px; color: var(--ink-2); line-height: 1.95; max-width: 640px; padding-left: 20px; border-left: 3px solid var(--ink-1); margin-bottom: 40px; }
+  .hero-lead strong { color: var(--ink-1); font-weight: 700; }
+  .hero-cta { display: flex; gap: 12px; }
+  .btn { padding: 13px 26px; border-radius: 100px; font-size: 14px; font-weight: 700; transition: transform .15s, opacity .15s; display: inline-block; }
+  .btn:hover { transform: translateY(-1px); opacity: 0.88; }
+  .btn-dark { background: var(--ink-1); color: #fff; }
+  .btn-line { border: 1.5px solid var(--border); color: var(--ink-2); }
+
+  /* SECTION HEAD */
+  .eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
+  .sec-title { font-size: 27px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.42; color: var(--ink-1); margin-bottom: 44px; }
+
+  /* SELF-INTRO MATCH */
+  .intro-match { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 8px; }
+  .intro-row { display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 16px; border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; background: var(--bg-soft); }
+  .intro-row .num { width: 30px; height: 30px; border-radius: 8px; background: var(--ink-1); color: #fff; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  .intro-row .q { font-size: 13.5px; color: var(--ink-1); font-weight: 700; }
+  .intro-row .a { font-size: 12.5px; color: var(--ink-3); font-weight: 600; white-space: nowrap; }
+
+  /* JD MATCHING TABLE */
+  .match-table { width: 100%; border-collapse: collapse; }
+  .match-table th { background: var(--charcoal); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 20px; text-align: left; }
+  .match-table th:first-child { border-radius: 10px 0 0 0; width: 38%; }
+  .match-table th:last-child { border-radius: 0 10px 0 0; }
+  .match-table td { padding: 13px 20px; font-size: 13.5px; color: var(--ink-2); border-bottom: 1px solid var(--border); vertical-align: middle; line-height: 1.6; }
+  .match-table tr:last-child td { border-bottom: none; }
+  .match-table tr:last-child td:first-child { border-radius: 0 0 0 10px; }
+  .match-table tr:last-child td:last-child { border-radius: 0 0 10px 0; }
+  .match-table tr:nth-child(odd) td { background: var(--bg-soft); }
+  .match-table tr:nth-child(even) td { background: var(--bg); }
+  .match-table td:first-child { font-weight: 700; color: var(--ink-1); }
+  .match-table td:last-child { color: var(--ink-2); }
+  .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+  /* AI APPROACH */
+  .ai-approach-box { border: 1px solid var(--border); border-radius: var(--r); background: var(--bg-soft); padding: 28px 32px; }
+  .ai-approach-box p { font-size: 14px; color: var(--ink-2); line-height: 1.9; max-width: 780px; }
+  .ai-approach-box p + p { margin-top: 16px; }
+  .ai-approach-box p strong { color: var(--ink-1); font-weight: 700; }
+
+  /* KEY RESULTS */
+  .results-section { background: var(--charcoal); padding: 90px 0; }
+  .results-section .eyebrow { color: rgba(255,255,255,0.45); }
+  .results-section .sec-title { color: #fff; margin-bottom: 40px; }
+  .results-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .result-cell { padding: 22px 18px; background: var(--charcoal-2); border-radius: var(--r); }
+  .result-n { display: inline-block; font-size: 17px; font-weight: 800; color: #fff; background: rgba(255,255,255,0.1); padding: 4px 12px; border-radius: 7px; margin-bottom: 14px; }
+  .result-l { font-size: 13.5px; font-weight: 700; margin-bottom: 8px; color: #fff; line-height: 1.4; }
+  .result-d { font-size: 11.5px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+  /* CASE CARDS */
+  .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .case-card { border: 1px solid var(--border); border-radius: var(--r); padding: 30px 28px; cursor: pointer; transition: box-shadow .18s, transform .18s, border-color .18s; background: var(--bg); display: flex; flex-direction: column; }
+  .case-card:hover { box-shadow: 0 10px 28px rgba(0,0,0,0.07); transform: translateY(-3px); border-color: rgba(20,20,22,0.25); }
+  .case-card .case-no { font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink-3); margin-bottom: 12px; }
+  .case-card h3 { font-size: 17px; font-weight: 700; color: var(--ink-1); line-height: 1.45; margin-bottom: 14px; letter-spacing: -0.01em; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 12px; }
+  .case-tag { font-size: 10.5px; font-weight: 600; color: var(--ink-1); background: var(--charcoal-a); padding: 4px 11px; border-radius: 100px; }
+  .case-card p.blurb { font-size: 13px; color: var(--ink-3); line-height: 1.7; margin-bottom: 18px; flex: 1; }
+  .case-card-foot { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; border-top: 1px solid var(--border); padding-top: 16px; }
+  .case-card-foot .summary { font-size: 12px; font-weight: 700; color: var(--ink-2); }
+  .case-more { font-size: 13px; font-weight: 700; color: var(--ink-1); white-space: nowrap; }
+
+  /* MODAL */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(20,20,22,0.6); z-index: 100; display: none; align-items: flex-start; justify-content: center; padding: 36px 20px; overflow-y: auto; }
+  .modal-overlay.open { display: flex; }
+  .modal-card { background: #fff; border-radius: 16px; max-width: 700px; width: 100%; margin: 0 auto; overflow: hidden; }
+  .modal-head { background: var(--charcoal); padding: 28px 34px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .modal-head .case-no { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); margin-bottom: 10px; }
+  .modal-head h2 { font-size: 19px; font-weight: 800; color: #fff; line-height: 1.45; letter-spacing: -0.01em; }
+  .modal-close { flex-shrink: 0; font-size: 16px; color: #fff; cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 100px; background: rgba(255,255,255,0.12); transition: background .15s; }
+  .modal-close:hover { background: rgba(255,255,255,0.22); }
+  .modal-body { padding: 30px 34px 36px; }
+  .case-block { margin-bottom: 20px; }
+  .case-block h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+  .case-block p { font-size: 13.5px; color: var(--ink-2); line-height: 1.85; }
+  .case-block p strong { font-weight: 700; color: var(--ink-1); }
+  .sub-item { display: flex; gap: 14px; margin: 14px 0; }
+  .sub-badge { flex-shrink: 0; width: 22px; height: 22px; border-radius: 5px; background: var(--ink-1); color: #fff; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .sub-item-body h5 { font-size: 13.5px; font-weight: 700; color: var(--ink-1); margin-bottom: 6px; }
+  .sub-item-body p { font-size: 13px; color: var(--ink-2); line-height: 1.8; }
+  .sub-item-body p strong { font-weight: 700; color: var(--ink-1); }
+  .result-box { background: var(--bg-soft); border-left: 3px solid var(--ink-1); padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+  .result-box .big { font-size: 16px; font-weight: 800; color: var(--ink-1); margin-bottom: 4px; }
+  .result-box .desc { font-size: 12px; color: var(--ink-3); }
+  .wk-box { background: rgba(40,45,50,0.04); border: 1.5px solid var(--charcoal); border-radius: 10px; padding: 16px 20px; margin: 16px 0 0; }
+  .wk-box .wk-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 8px; }
+  .wk-box p { font-size: 13px; color: var(--ink-2); line-height: 1.8; }
+
+  /* DIAGRAM */
+  .diagram-box { border: 1px solid var(--border); border-radius: var(--r); background: var(--bg-soft); padding: 16px 18px 10px; margin: 18px 0; }
+  .diagram-box svg { display: block; width: 100%; height: auto; }
+
+  /* EXTRA NOTE */
+  .extra-note { margin-top: 22px; padding: 16px 20px; background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; font-size: 13px; color: var(--ink-2); line-height: 1.7; }
+  .extra-note strong { color: var(--ink-1); font-weight: 700; }
+
+  /* SKILLS */
+  .skills-section { background: var(--bg-soft); padding: 90px 0; }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .skills-cell { padding: 24px; border: 1px solid var(--border); border-radius: var(--r); background: var(--bg); }
+  .skills-cell h3 { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); color: var(--ink-1); }
+  .skills-cell li { font-size: 13px; color: var(--ink-2); line-height: 1.8; padding: 2px 0; }
+
+  /* FOOTER */
+  footer { padding: 56px 0; border-top: 1px solid var(--border); }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  footer .name { font-size: 19px; font-weight: 800; margin-bottom: 6px; color: var(--ink-1); }
+  footer .role { font-size: 13px; color: var(--ink-3); margin-bottom: 10px; }
+  footer .info { font-size: 13.5px; color: var(--ink-2); }
+  footer .mail-btn { padding: 13px 26px; border-radius: 100px; background: var(--ink-1); color: #fff; font-weight: 700; font-size: 13.5px; transition: opacity .15s; }
+  footer .mail-btn:hover { opacity: 0.85; }
+
+  @media (max-width: 760px) {
+    .hero h1 { font-size: 36px; }
+    .ai-approach-box { padding: 22px 22px; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .case-grid { grid-template-columns: 1fr; }
+    .intro-row { grid-template-columns: 28px 1fr; }
+    .intro-row .a { grid-column: 2 / 3; white-space: normal; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 11.5px; }
+    section, .hero, .results-section, .skills-section { padding: 64px 0; }
+    .modal-head, .modal-body { padding-left: 22px; padding-right: 22px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">오희은 · 위시켓 Portfolio</div>
+    <div class="nav-links">
+      <a href="#intro">소개</a>
+      <a href="#match">JD 매칭</a>
+      <a href="#cases">케이스 스터디</a>
+      <a href="#contact">연락하기</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="intro">
+  <div class="wrap">
+    <div class="hero-tag">위시켓 플랫폼 프로젝트 운영 매니저 지원 · AI 기반 업무 자동화 · CRM 운영 · VOC 분석 · 이해관계자 조율</div>
+    <h1>오희은</h1>
+    <p class="hero-role">Platform Operations Portfolio</p>
+    <p class="hero-lead">
+      위시켓은 클라이언트와 파트너가 만나는 접점에서 <strong>'탐색 비용'을 줄이는 것</strong>이 서비스의 핵심이라고 이해했습니다.<br><br>
+      저는 초록마을 CS운영팀에서 CRM·샵어드민·채널톡을 다루며, <strong>고객·운영자·담당자 각자가 정보를 찾기까지 거치는 탐색·확인 비용</strong>을 줄이는 데 집중했습니다. 반복되는 업무를 구조화해 기준을 세우고, AI 도구를 활용해 자동화로 구현해왔습니다.<br><br>
+      아래 4개 케이스는 고객 접점에서 확인한 반복 병목을 CRM·Slack·Sheets·파트너 프로세스 개선으로 전환해, <strong>고객과 운영자의 탐색·확인 비용을 줄인 과정</strong>입니다.
+    </p>
+    <div class="hero-cta">
+      <a href="#cases" class="btn btn-dark">케이스 스터디 보기 →</a>
+      <a href="#match" class="btn btn-line">JD 매칭 확인</a>
+    </div>
+  </div>
+</div>
+
+<!-- SELF-INTRO MATCH -->
+<section style="padding: 60px 0 0;">
+  <div class="wrap">
+    <div class="eyebrow">Self-Intro Matching</div>
+    <h2 class="sec-title" style="margin-bottom:24px;">위시켓이 요청한 자기소개 3문항과 이 포트폴리오의 연결</h2>
+    <div class="intro-match">
+      <div class="intro-row">
+        <div class="num">1</div>
+        <div class="q">AI를 활용해 본인 또는 고객의 업무를 개선해본 경험</div>
+        <div class="a">CASE 01·02·04 및 추가 자동화 경험 — CRM·Slack·Sheets·API 기반 반복 업무 자동화</div>
+      </div>
+      <div class="intro-row">
+        <div class="num">2</div>
+        <div class="q">해결하기 어려운 문제가 발생했을 때 해결한 방법</div>
+        <div class="a">CASE 03 — 택배사 회수 중심 파손 사고 기준을 약관·고객 안전·업무 로스 근거로 재협의</div>
+      </div>
+      <div class="intro-row">
+        <div class="num">3</div>
+        <div class="q">기존 프로세스·프로덕트 개선 경험 (무엇을, 왜)</div>
+        <div class="a">CASE 04 — CS 처리현황·고객 안내 흐름 개선</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JD MATCHING -->
+<section id="match" style="padding: 60px 0 80px;">
+  <div class="wrap">
+    <div class="eyebrow">JD Matching</div>
+    <h2 class="sec-title">위시켓 JD 요구사항과 제 경험의 연결</h2>
+    <div class="table-wrap">
+      <table class="match-table">
+        <thead>
+          <tr>
+            <th>위시켓 JD</th>
+            <th>연결 경험</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>고객 대상 CRM 담당</td>
+            <td>초록마을 CRM·샵어드민·채널톡 기반 1:1 문의·환불·재배송·미출고 처리, CRM 주문번호 자동 조회·CS 처리현황 시트 자동화 도구 직접 구축</td>
+          </tr>
+          <tr>
+            <td>VOC 수집·분석</td>
+            <td>파손·누수·유리병 사고 등 고객 불편 VOC를 사고 처리 기준과 연결해 분석하고, 고객이 위험 물품을 보관하지 않아도 배상 접수가 가능한 기준으로 재정리. 담당자 탐색 병목 등 반복 문의도 함께 유형화</td>
+          </tr>
+          <tr>
+            <td>AI 툴 활용한 서비스·프로세스 직접 개선/제작</td>
+            <td>CRM 자동조회, Slack 담당자 조회 봇, CS 처리현황 시트 자동화, 환불 계좌 검증 도구 등을 ChatGPT·Claude로 비개발자가 직접 기획·구축. 시스템 단위 개선이 어려운 상황에서도 AI 도구로 실무자가 바로 적용 가능한 대안을 설계</td>
+          </tr>
+          <tr>
+            <td>고객센터(전화·채널톡·이메일) 상담</td>
+            <td>초록마을 CRM 1:1 게시판 중심 고객 문의 운영 및 초기 채널톡 응대 경험. 이후 답변 검수·SOP·온보딩·에스컬레이션 기준 관리로 역할을 확장했으며, 카카오VX 고객센터와 호텔신라 예약 고객 응대 경험 보유</td>
+          </tr>
+          <tr>
+            <td>클라이언트·파트너 미팅 일정 조율</td>
+            <td>IT 프로젝트 미팅 조율 자체보다는, 고객 요청·내부 처리 가능 범위·외부 파트너 기준 사이에서 일정, 처리 조건, 후속 안내 기준을 조율해왔습니다. 배송 지연·재배송·취소·환불 이슈에서 도착희망일, 출고 가능 여부, 고객 요청을 기준으로 처리 방향을 정리했고, 외부 택배사와는 사고 접수·사진 증빙·보상 기준을 협의해 실무 기준으로 반영했습니다.</td>
+          </tr>
+          <tr>
+            <td>문제 상황 속 진짜 문제를 찾는 힘·'왜'</td>
+            <td>파손 사고를 단순 보상 지연 문제가 아니라, 회수·입고 확인에 묶여 고객 안전과 배상 리드타임을 동시에 악화시키는 구조적 문제로 정의했습니다. 이후 표준약관, 고객 안전, 택배사 업무 로스를 근거로 TO-BE 프로세스를 재협의했습니다.</td>
+          </tr>
+          <tr>
+            <td>채널톡 운영 경험 (우대)</td>
+            <td>초록마을 초기 채널톡 응대 경험이 있으며, 이후에는 CRM 1:1 게시판 중심으로 고객 문의를 운영하고 답변 검수·처리 기준 정비 역할 수행</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- AI APPROACH -->
+<section style="padding: 0 0 80px;">
+  <div class="wrap">
+    <div class="eyebrow">AI Approach</div>
+    <h2 class="sec-title">AI를 업무 도구로 전환한 방식</h2>
+    <div class="ai-approach-box">
+      <p>당시 회사에는 Gemini Pro와 Arthur(정육각·초록마을 특화 사내 AI 인터프리터) 등 기본 AI 활용 환경이 있었지만, 반복 운영 자동화와 코드 작성·디버깅·문서화에는 Claude·ChatGPT가 더 적합한 구간이 있었습니다. 저는 실제 업무 병목을 해결하기 위한 별도 활용 필요성을 제안해 업무 도구로 승인받았고, 이후 CRM 주문번호 자동 조회, Slack 담당자 조회 봇, Google Sheets 처리현황 자동화, 환불 계좌 검증 도구 구축에 적용했습니다.</p>
+      <p>AI는 답변 초안 생성용이 아니라, <strong>문제를 코드와 운영 로직으로 바꾸는 도구</strong>로 사용했습니다. 요구사항 정리, 정규식 설계, 예외 처리, 오류 로그 해석, 테스트 후 수정, 인수인계 문서화까지 실무자가 직접 검증하며 적용했습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KEY RESULTS -->
+<div class="results-section" id="results">
+  <div class="wrap">
+    <div class="eyebrow">Key Results</div>
+    <h2 class="sec-title">케이스별 핵심 성과</h2>
+    <div class="results-grid">
+      <div class="result-cell">
+        <div class="result-n">클릭+단축키</div>
+        <div class="result-l">CRM 주문번호 자동 조회</div>
+        <div class="result-d">형식 다른 두 시스템 수기 대조 제거</div>
+      </div>
+      <div class="result-cell">
+        <div class="result-n">엑셀→명령어 1줄</div>
+        <div class="result-l">담당자 탐색 자동화</div>
+        <div class="result-d">Slack 조회로 담당자 확인 동선 단축</div>
+      </div>
+      <div class="result-cell">
+        <div class="result-n">약 14.7배</div>
+        <div class="result-l">파손 사고 배상 회수 증가</div>
+        <div class="result-d">매출 규모가 더 작았음에도 회수 구조 개선</div>
+      </div>
+      <div class="result-cell">
+        <div class="result-n">중복·상태 감지</div>
+        <div class="result-l">CS 처리현황 시트 자동화</div>
+        <div class="result-d">처리 누락·중복 입력 리스크 감소</div>
+      </div>
+      <div class="result-cell">
+        <div class="result-n">4개+</div>
+        <div class="result-l">AI/운영 개선 도구 구축</div>
+        <div class="result-d">CRM·Sheets·Slack·API 기반 반복 업무 개선</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDY -->
+<section id="cases">
+  <div class="wrap">
+    <div class="eyebrow">Case Study</div>
+    <h2 class="sec-title">탐색·확인 비용을 줄이고 운영 기준을 정비한 4개 케이스</h2>
+    <div class="case-grid">
+
+      <div class="case-card" onclick="openModal('m1')">
+        <div class="case-no">CASE 01</div>
+        <div class="case-tags"><span class="case-tag">문제 정의</span><span class="case-tag">시스템 제약 대응</span></div>
+        <h3>CRM 주문번호 자동 조회 바로가기</h3>
+        <p class="blurb">형식이 다른 CRM 주문번호와 관리자 사이트를 매번 수기로 대조하던 문제를, 시스템 개선이 어려운 상황에서 PC 단위 자동화 대안으로 해결했습니다.</p>
+        <div class="case-card-foot"><span class="summary">시스템 제약 → PC 단위 자동화 대안</span><span class="case-more">자세히 보기 →</span></div>
+      </div>
+
+      <div class="case-card" onclick="openModal('m3')">
+        <div class="case-no">CASE 02</div>
+        <div class="case-tags"><span class="case-tag">Slack 자동화</span><span class="case-tag">탐색 비용 절감</span></div>
+        <h3>Slack 기반 상품 담당자 조회 자동화</h3>
+        <p class="blurb">상품문의가 들어올 때마다 엑셀을 열어 담당 MD를 검색해야 했던 과정을, 슬랙 명령어 한 줄로 대체했습니다.</p>
+        <div class="case-card-foot"><span class="summary">엑셀 검색 → 슬랙 명령어 1줄</span><span class="case-more">자세히 보기 →</span></div>
+      </div>
+
+      <div class="case-card" onclick="openModal('m5')">
+        <div class="case-no">CASE 03</div>
+        <div class="case-tags"><span class="case-tag">파트너 운영</span><span class="case-tag">프로세스 개선</span><span class="case-tag">CX 리스크 관리</span></div>
+        <h3>택배사 파손 사고 프로세스 재협의</h3>
+        <p class="blurb">회수 후 사고 접수를 고수하던 택배사 파손 사고 기준을 택배표준약관과 고객 안전 리스크에 근거해 재협의하고, 사고 접수 기록·파손 사진 중심의 간소화 프로세스로 전환했습니다.</p>
+        <div class="case-card-foot"><span class="summary">회수 중심 → 사고 접수·사진 증빙 중심</span><span class="case-more">자세히 보기 →</span></div>
+      </div>
+
+      <div class="case-card" onclick="openModal('m2')">
+        <div class="case-no">CASE 04</div>
+        <div class="case-tags"><span class="case-tag">운영 자동화</span><span class="case-tag">휴먼 에러 감소</span></div>
+        <h3>CS 처리현황·고객 안내 시트 자동화</h3>
+        <p class="blurb">주문번호 확인, 고객 문자 발송, 처리 상태·중복 확인이 반복되던 수작업을 시트 자동화와 조건부 서식으로 줄이고, 구조가 바뀌어도 깨지지 않게 설계했습니다.</p>
+        <div class="case-card-foot"><span class="summary">반복 수작업 · 휴먼 에러 감소</span><span class="case-more">자세히 보기 →</span></div>
+      </div>
+
+    </div>
+
+    <div class="extra-note"><strong>추가 자동화 경험</strong> — 환불 계좌 예금주 일치 여부를 외부 API와 Python/Flask 기반 로컬 도구로 일괄 검증할 수 있도록 구성했습니다. 지급 단계에서 오류가 확인된 뒤 고객 재확인·지출요청서 수정·재이체 요청이 반복되는 흐름을 사전에 줄이기 위한 검증 구조로, 결과 화면·엑셀 다운로드·단건 조회·실행 문서화까지 구성했습니다.</div>
+    <div class="extra-note"><strong>추가 운영 표준화 경험</strong> — 카카오VX에서 400여 개 제휴 골프장의 예약·취소·위약 기준을 공통 항목으로 재정리해, 골프장마다 달랐던 정책 정보를 상담 담당자가 같은 순서로 확인할 수 있도록 표준화했습니다.</div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="skills-section">
+  <div class="wrap">
+    <div class="eyebrow">Skills &amp; Tools</div>
+    <h2 class="sec-title">역량 및 도구</h2>
+    <div class="skills-grid">
+      <div class="skills-cell">
+        <h3>운영 구조화</h3>
+        <ul>
+          <li>CRM·샵어드민·채널톡 기반 1:1 문의·환불·재배송·미출고 처리</li>
+          <li>VOC 유형화, 반복 병목의 원인 구조 분석</li>
+          <li>SOP·FAQ·인수인계 문서화(Notion)</li>
+          <li>이해관계자(기술 책임자·유관 부서 리더·대표) 사전 검토·승인 프로세스 조율</li>
+        </ul>
+      </div>
+      <div class="skills-cell">
+        <h3>AI · 자동화</h3>
+        <ul>
+          <li>ChatGPT·Claude 활용 자동화 로직 설계·구현·검증</li>
+          <li>Python/Flask, AutoHotkey, Google Apps Script</li>
+          <li>Slack Slash Command, Chrome 북마클릿, 외부 API 연동(예금주 조회)</li>
+          <li>조건부 서식 기반 상태 자동 감지, 동적 데이터 구조 설계</li>
+        </ul>
+      </div>
+      <div class="skills-cell">
+        <h3>데이터 · 협업 도구</h3>
+        <ul>
+          <li>Google Sheets · Excel</li>
+          <li>Notion · Slack · CRM · 채널톡</li>
+          <li>보안 관리(API 인증키 분리) · 문서화 기반 팀 자산화</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="name">오희은</div>
+      <div class="role">위시켓 · 플랫폼 프로젝트 운영 매니저 지원</div>
+      <div class="info">gldms1009@naver.com · 010-2357-2674</div>
+    </div>
+    <a href="mailto:gldms1009@naver.com" class="mail-btn">이메일 보내기</a>
+  </div>
+</footer>
+
+<!-- MODAL 1: CRM 주문번호 자동조회 -->
+<div class="modal-overlay" id="m1" onclick="closeOnOverlay(event,'m1')">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="case-no">CASE 01</div>
+        <h2>CRM 주문번호 자동 조회 바로가기</h2>
+      </div>
+      <div class="modal-close" onclick="closeModal('m1')">✕</div>
+    </div>
+    <div class="modal-body">
+      <div class="case-block">
+        <h4>Problem</h4>
+        <p>사내 CRM(설치형 클라이언트 프로그램)의 1:1 상담관리 화면에서 상담 건마다 표시되는 주문번호를, 관리자 사이트 주문상세 페이지에서 매번 수기로 검색해 대조해야 했습니다. CRM 표시 형식과 관리자 사이트 URL 형식이 달라 단순 복사조차 어려운 상황이었습니다.</p>
+      </div>
+      <div class="case-block">
+        <h4>What I Did</h4>
+        <div class="sub-item">
+          <div class="sub-badge">A</div>
+          <div class="sub-item-body">
+            <h5>정식 채널로 먼저 제안</h5>
+            <p>Before/After 흐름을 정리한 자료를 만들어 유관 부서 리더에게 "CRM 주문번호 클릭 시 관리자 사이트로 바로 이동" 기능을 정식으로 제안했습니다. CRM이 오래된 버전이라 시스템 단위 수정은 당장 적용이 어렵다는 검토 결과를 받았습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">B</div>
+          <div class="sub-item-body">
+            <h5>PC 단위 자동화 대안 설계</h5>
+            <p>시스템 레벨에서 바로 적용하기 어렵다면 개인 워크스테이션 단위에서는 다른 접근이 가능할 수 있다고 판단했습니다. 개발 리소스가 제한된 상황에서 AI 도구를 활용해 실무자가 스스로 적용할 수 있는 대안을 설계했습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">C</div>
+          <div class="sub-item-body">
+            <h5>안정성을 우선한 방식 선택</h5>
+            <p>필드를 더블클릭하면 자동으로 열리는 방식을 먼저 시도했지만, 프로그램 내장 기능과 충돌해 동작이 불안정했습니다. 실사용 중인 업무 프로그램에 리스크를 주지 않는 "클릭 후 단축키" 방식으로 전환하고, 잘못된 값이 인식되는 경우를 걸러내는 검증 로직을 더했습니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="big">시스템 단위 개선이 어려운 상황에서, PC 단위 자동화 대안으로 해결</div>
+        <div class="desc">반복적인 수기 검색·대조 작업 제거 · 클릭 한 번 + 단축키로 접근 시간 단축 · 재시작 후에도 자동 동작</div>
+      </div>
+      <div class="wk-box">
+        <div class="wk-label">WISHKET 연결</div>
+        <p>시스템 레벨 개선이 바로 반영되기 어려운 상황에서도 거기서 멈추지 않고, AI 도구로 실무자가 적용 가능한 대안을 찾아낸 경험입니다. 개발 리소스가 제한된 환경에서 AI로 직접 문제를 풀어내는 태도는 위시켓이 찾는 역량과 맞닿아 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: CS 처리현황·고객 안내 시트 자동화 -->
+<div class="modal-overlay" id="m2" onclick="closeOnOverlay(event,'m2')">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="case-no">CASE 04</div>
+        <h2>CS 처리현황·고객 안내 시트 자동화</h2>
+      </div>
+      <div class="modal-close" onclick="closeModal('m2')">✕</div>
+    </div>
+    <div class="modal-body">
+      <div class="case-block">
+        <h4>Problem</h4>
+        <p>미출고·환불·재배송을 처리할 때마다 주문번호 확인, 고객 문자 발송, 처리 상태 확인, 중복 입력 확인이 반복되는 수작업이었습니다. 건수가 늘어날수록 상태 누락이나 중복 처리 같은 휴먼 에러가 발생하기 쉬운 구조였습니다.</p>
+      </div>
+      <div class="case-block">
+        <h4>What I Did</h4>
+        <div class="sub-item">
+          <div class="sub-badge">A</div>
+          <div class="sub-item-body">
+            <h5>주문번호 자동 링크 생성</h5>
+            <p>Google Sheets에 onEdit 트리거를 연결해, 주문번호를 입력하면 관리자 사이트 주문상세 링크가 자동으로 생성되도록 구성했습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">B</div>
+          <div class="sub-item-body">
+            <h5>구조가 바뀌어도 깨지지 않는 설계</h5>
+            <p>헤더와 열 위치를 고정하지 않고 동적으로 탐색하도록 만들어, 시트의 열 순서가 바뀌어도 자동화가 계속 동작하게 했습니다. 자동화가 일부 실패했을 때를 대비해 백필 함수와 수동 실행 메뉴도 함께 만들어 언제든 스스로 복구할 수 있게 했습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">C</div>
+          <div class="sub-item-body">
+            <h5>고객 문자 발송 동선 단축</h5>
+            <p>문자내용 셀을 선택하면 문자발송 시스템으로 메시지가 전달되고, Chrome 북마클릿으로 제목·본문·발신번호가 자동 입력되도록 구성해 반복적인 복사·붙여넣기를 없앴습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">D</div>
+          <div class="sub-item-body">
+            <h5>조건부 서식으로 상태 자동 감지</h5>
+            <p>처리 상태, 취소예정, 중복 주문번호를 조건부 서식으로 자동 표시해 한눈에 확인할 수 있게 했습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">E</div>
+          <div class="sub-item-body">
+            <h5>최종 적립 전 중복 검증 자동화</h5>
+            <p>최종 포인트 적립 파일에서도 회원코드 기준 중복 행을 자동 병합하고 적립 포인트를 합산하는 VBA를 구성해, 업로드 전 중복 적립·누락 리스크를 줄였습니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="diagram-box">
+        <svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg">
+          <text x="20" y="24" font-size="11" font-weight="700" letter-spacing="1" fill="#909098">BEFORE</text>
+          <rect x="20" y="38" width="240" height="50" rx="8" fill="#ffffff" stroke="rgba(20,20,22,0.12)"/>
+          <text x="36" y="58" font-size="12.5" fill="#141416" font-weight="600">주문번호 수기 검색</text>
+          <text x="36" y="76" font-size="11" fill="#50505A">관리자 사이트에서 재확인</text>
+          <line x1="140" y1="88" x2="140" y2="106" stroke="#909098" stroke-width="1.5"/>
+          <polygon points="140,113 135,103 145,103" fill="#909098"/>
+          <rect x="20" y="114" width="240" height="50" rx="8" fill="#ffffff" stroke="rgba(20,20,22,0.12)"/>
+          <text x="36" y="134" font-size="12.5" fill="#141416" font-weight="600">문자 내용 복사·붙여넣기</text>
+          <text x="36" y="152" font-size="11" fill="#50505A">중복 여부는 눈으로 대조</text>
+
+          <line x1="292" y1="102" x2="332" y2="102" stroke="#141416" stroke-width="1.5"/>
+          <polygon points="340,102 328,96 328,108" fill="#141416"/>
+
+          <text x="360" y="24" font-size="11" font-weight="700" letter-spacing="1" fill="#141416">AFTER</text>
+          <rect x="360" y="38" width="240" height="50" rx="8" fill="#282D32"/>
+          <text x="376" y="58" font-size="12.5" fill="#ffffff" font-weight="600">주문번호 입력 → 링크 자동 생성</text>
+          <text x="376" y="76" font-size="11" fill="rgba(255,255,255,0.62)">조건부 서식으로 상태 자동 표시</text>
+          <line x1="480" y1="88" x2="480" y2="106" stroke="#909098" stroke-width="1.5"/>
+          <polygon points="480,113 475,103 485,103" fill="#909098"/>
+          <rect x="360" y="114" width="240" height="50" rx="8" fill="#ffffff" stroke="rgba(20,20,22,0.12)"/>
+          <text x="376" y="134" font-size="12.5" fill="#141416" font-weight="600">문자 자동 입력 + 중복 행 표시</text>
+          <text x="376" y="152" font-size="11" fill="#50505A">복사·붙여넣기·눈대조 없이 처리</text>
+
+          <text x="20" y="188" font-size="11" fill="#909098">시트·문자·검색이 각각 분리</text>
+          <text x="360" y="188" font-size="11" fill="#141416">한 시트 안에서 자동 연결</text>
+        </svg>
+      </div>
+      <div class="result-box">
+        <div class="big">반복 수작업과 휴먼 에러 감소</div>
+        <div class="desc">고객 안내와 내부 처리 현황을 같은 시트 안에서 함께 관리 · 자동화 실패 시에도 수동 복구 가능</div>
+      </div>
+      <div class="wk-box">
+        <div class="wk-label">WISHKET 연결</div>
+        <p>위시켓의 클라이언트·파트너 운영에서도 정보 확인, 일정 조율, 후속 안내가 반복되는 구간이 있을 수 있습니다. 반복 확인·안내 업무를 시트 자동화와 조건부 서식으로 흡수하면, 실무자는 예외 케이스와 실제 판단이 필요한 지점에 더 집중할 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: Slack 담당자 조회 -->
+<div class="modal-overlay" id="m3" onclick="closeOnOverlay(event,'m3')">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="case-no">CASE 02</div>
+        <h2>Slack 기반 상품 담당자 조회 자동화</h2>
+      </div>
+      <div class="modal-close" onclick="closeModal('m3')">✕</div>
+    </div>
+    <div class="modal-body">
+      <div class="case-block">
+        <h4>Problem</h4>
+        <p>상품문의 업무 채널에 상품 관련 문의가 접수될 때마다 담당 MD를 먼저 확인해야 했습니다. 상품별 담당자는 변경이 잦았고 세부 상품 단위로만 관리할 수 있는 구조라, 문의가 들어올 때마다 공유된 엑셀 파일을 직접 열어 검색해야 했습니다.</p>
+      </div>
+      <div class="case-block">
+        <h4>What I Did</h4>
+        <div class="sub-item">
+          <div class="sub-badge">A</div>
+          <div class="sub-item-body">
+            <h5>키워드 기반 검색 설계</h5>
+            <p>정확한 상품명을 몰라도 일부 키워드나 상품코드로 검색할 수 있도록 슬랙 슬래시 커맨드를 설계했습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">B</div>
+          <div class="sub-item-body">
+            <h5>데이터 일원화 및 예외 처리</h5>
+            <p>원본 데이터를 구글 시트로 옮겨 담당자 변경 시 시트만 수정하면 바로 반영되게 했고, 세부 상품으로 검색되지 않을 때는 카테고리 단위 안내가 대신 표시되도록 했습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">C</div>
+          <div class="sub-item-body">
+            <h5>사전 검토 후 배포</h5>
+            <p>조회 결과는 입력자에게만 보이도록 설정해 채널 가독성을 지켰고, 기술 책임자에게 운영상 문제가 없을지 먼저 검토를 요청해 승인을 받은 뒤 전사에 배포했습니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="diagram-box">
+        <svg viewBox="0 0 620 190" xmlns="http://www.w3.org/2000/svg">
+          <text x="20" y="24" font-size="11" font-weight="700" letter-spacing="1" fill="#909098">BEFORE</text>
+          <rect x="20" y="38" width="240" height="46" rx="8" fill="#ffffff" stroke="rgba(20,20,22,0.12)"/>
+          <text x="36" y="58" font-size="12.5" fill="#141416" font-weight="600">엑셀 파일 열기</text>
+          <text x="36" y="76" font-size="11" fill="#50505A">상품명·코드로 수기 검색</text>
+          <line x1="140" y1="84" x2="140" y2="104" stroke="#909098" stroke-width="1.5"/>
+          <polygon points="140,111 135,101 145,101" fill="#909098"/>
+          <rect x="20" y="112" width="240" height="46" rx="8" fill="#ffffff" stroke="rgba(20,20,22,0.12)"/>
+          <text x="36" y="132" font-size="12.5" fill="#141416" font-weight="600">담당자 정보 확인</text>
+          <text x="36" y="150" font-size="11" fill="#50505A">못 찾으면 재검색 반복</text>
+          <text x="20" y="178" font-size="11" fill="#909098">문의마다 반복 검색 발생</text>
+
+          <line x1="292" y1="95" x2="332" y2="95" stroke="#141416" stroke-width="1.5"/>
+          <polygon points="340,95 328,89 328,101" fill="#141416"/>
+
+          <text x="360" y="24" font-size="11" font-weight="700" letter-spacing="1" fill="#141416">AFTER</text>
+          <rect x="360" y="38" width="240" height="46" rx="8" fill="#282D32"/>
+          <text x="376" y="58" font-size="12.5" fill="#ffffff" font-weight="600">/담당자 상품코드</text>
+          <text x="376" y="76" font-size="11" fill="rgba(255,255,255,0.62)">슬랙 명령어 입력</text>
+          <line x1="480" y1="84" x2="480" y2="104" stroke="#909098" stroke-width="1.5"/>
+          <polygon points="480,111 475,101 485,101" fill="#909098"/>
+          <rect x="360" y="112" width="240" height="46" rx="8" fill="#ffffff" stroke="rgba(20,20,22,0.12)"/>
+          <text x="376" y="132" font-size="12.5" fill="#141416" font-weight="600">담당자·상품 정보 카드</text>
+          <text x="376" y="150" font-size="11" fill="#50505A">입력자에게만 즉시 표시</text>
+          <text x="360" y="178" font-size="11" fill="#141416">명령어 1줄 → 즉시 결과</text>
+        </svg>
+      </div>
+      <div class="result-box">
+        <div class="big">"엑셀 열기 → 검색"이 슬랙 명령어 한 줄로 단축</div>
+        <div class="desc">담당자 데이터 일원화로 재배포 없이 실시간 반영 · 결과가 입력자에게만 보여 채널 가독성 유지</div>
+      </div>
+      <div class="wk-box">
+        <div class="wk-label">WISHKET 연결</div>
+        <p>위시켓의 클라이언트·파트너 매칭 업무에서도 "정보는 있지만 닿기까지 절차가 긴" 지점이 있을 수 있습니다. 예외 케이스까지 고려한 설계는 탐색 비용을 줄이는 위시켓의 핵심 가치와 맞닿아 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 5: 택배사 파손 사고 프로세스 재협의 -->
+<div class="modal-overlay" id="m5" onclick="closeOnOverlay(event,'m5')">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="case-no">CASE 03</div>
+        <h2>택배사 파손 사고 프로세스 재협의</h2>
+      </div>
+      <div class="modal-close" onclick="closeModal('m5')">✕</div>
+    </div>
+    <div class="modal-body">
+      <div class="case-block">
+        <h4>Problem</h4>
+        <p>식품과 유리병 상품을 취급하는 초록마을에서 배송 중 파손·누수 사고가 발생하면, 기존 택배사 기준상 물품 회수와 물류센터 입고 확인이 완료되어야 사고 접수가 가능했습니다. 또한 파손 사진 등 복수 증빙이 요구되어, 고객이 이미 상품을 폐기했거나 추가 촬영·회수 협조가 어려운 경우에는 사고 접수 자체가 지연되거나 진행되지 않는 문제가 있었습니다.</p>
+        <p style="margin-top:10px;"><strong>단순한 보상 지연이 아니라, 고객에게 깨진 유리병이나 누수·악취가 발생한 식품을 계속 보관하게 만들고, CS에는 추가 사진 요청과 회수 안내를 반복하게 만드는 문제</strong>였습니다. 고객 안전, CX, 배상 회수, 파트너 업무 로스가 동시에 얽힌 구조적 문제로 정의했습니다.</p>
+      </div>
+      <div class="case-block">
+        <h4>What I Did</h4>
+        <div class="sub-item">
+          <div class="sub-badge">A</div>
+          <div class="sub-item-body">
+            <h5>사고 접수가 지연되는 구조를 재정의</h5>
+            <p>처음에는 택배사 정책상 회수 없이는 보상이 어렵다는 입장이 반복되었습니다. 저는 이 문제를 개별 사고의 증빙 부족이 아니라, 회수 가능 여부와 고객 협조 여부에 따라 사고 접수 자체가 좌우되는 구조로 보았습니다. 특히 유리 파손과 식품 누수는 고객에게 추가 보관과 촬영을 요구하기 어려운 품목이라는 점을 정리했습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">B</div>
+          <div class="sub-item-body">
+            <h5>NotebookLM으로 표준약관 원문 근거 탐색</h5>
+            <p>같은 요청을 반복하는 방식으로는 협의가 어렵다고 판단해, 택배표준약관에서 송화인 통보 의무와 사고 조치 의무에 해당하는 근거가 있는지 확인했습니다. NotebookLM을 활용해 약관 원문에서 파손·훼손·송화인 통보·사고 조치 관련 조항 후보를 빠르게 교차 검색했고, 최종적으로는 실제 약관 원문을 다시 확인한 뒤 커뮤니케이션에 반영했습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">C</div>
+          <div class="sub-item-body">
+            <h5>약관·고객 안전·업무 로스 기준으로 재협의</h5>
+            <p>택배표준약관상 운송 중 훼손 인지 시 송화인에게 통보해야 하는 의무와 사고 발생 시 조치 의무를 근거로, 파손 인지 후 송화인 공유 없이 고객에게 배송되거나 회수 완료 전까지 사고 접수를 지연하는 방식의 문제를 제기했습니다. 동시에 고객이 깨진 유리나 오염 식품을 보관·촬영해야 하는 안전 리스크, 택배사와 CS 모두에게 발생하는 회수·재확인 업무 로스를 함께 제시했습니다.</p>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div class="sub-badge">D</div>
+          <div class="sub-item-body">
+            <h5>회수 중심에서 사고 접수 기록·사진 중심으로 기준 전환</h5>
+            <p>협의 결과 택배사 측에서 사고물품 회수를 생략하고, 수하인 자체 폐기 안내와 파손 사진 대체를 통해 사고 접수를 진행하는 TO-BE 프로세스를 제안했습니다. 저는 이를 실무 기준으로 정리해, 고객이 위험하거나 불쾌한 파손품을 오래 보관하지 않아도 사고 접수와 배상 절차가 가능하도록 처리 기준을 정착시켰습니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="case-block">
+        <h4>Result</h4>
+        <p>2024년 12월은 2025년 12월보다 매출 규모가 약 3배 더 컸음에도, 파손 배상 회수액은 약 50만 원 수준에 그쳤습니다. 이후 택배사와 파손 사고 프로세스를 간소화한 2025년 12월에는 약 745만 원을 회수해, 전년 동월 대비 배상 회수액이 약 14.7배 증가했습니다.</p>
+      </div>
+      <div class="result-box">
+        <div class="big">약 50만 원 → 약 745만 원</div>
+        <div class="desc">배상 회수액 약 14.7배 증가 · 매출 규모가 더 작았음에도 회수 구조 개선</div>
+      </div>
+      <div class="wk-box">
+        <div class="wk-label">WISHKET 연결</div>
+        <p>위시켓의 플랫폼 운영에서도 클라이언트와 파트너 사이의 기존 정책이나 증빙 기준이 실제 고객 경험과 맞지 않는 경우가 발생할 수 있습니다. 이 사례는 외부 파트너의 기준을 그대로 수용하지 않고, 원문 근거와 고객 안전, 업무 효율을 바탕으로 문제를 재정의해 실무 적용 가능한 TO-BE 기준으로 전환한 경험입니다. 특히 AI를 단순 생성 도구가 아니라 원문 기반 근거 탐색과 검증에 활용했다는 점에서, AI를 활용해 운영 문제를 해결하는 위시켓의 역할과도 연결됩니다.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeOnOverlay(e, id) {
+    if (e.target.id === id) closeModal(id);
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(function(m){
+        m.classList.remove('open');
+      });
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+</body>
+</html>
